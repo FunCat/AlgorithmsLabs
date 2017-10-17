@@ -8,6 +8,8 @@ public class Vertex {
 
     private String label;
     private List<Edge> edges;
+    private Vertex parent;
+    private int countWeight;
     private boolean isVisited;
 
 
@@ -15,6 +17,7 @@ public class Vertex {
         this.label = label;
         this.edges = new ArrayList<>();
         this.isVisited = false;
+        this.countWeight = Integer.MAX_VALUE;
     }
 
     public String getLabel() {
@@ -39,6 +42,22 @@ public class Vertex {
 
     public void setEdges(List<Edge> edges) {
         this.edges = edges;
+    }
+
+    public Vertex getParent() {
+        return parent;
+    }
+
+    public void setParent(Vertex parent) {
+        this.parent = parent;
+    }
+
+    public int getCountWeight() {
+        return countWeight;
+    }
+
+    public void setCountWeight(int countWeight) {
+        this.countWeight = countWeight;
     }
 
     public boolean addEdge(Vertex newVertex, int weight){
@@ -83,5 +102,12 @@ public class Vertex {
         result = 31 * result + (edges != null ? edges.hashCode() : 0);
         result = 31 * result + (isVisited ? 1 : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Vertex{" +
+                "label='" + label + '\'' +
+                '}';
     }
 }

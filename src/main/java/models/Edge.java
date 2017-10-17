@@ -22,4 +22,12 @@ public class Edge {
     public boolean isBetween(Vertex from, Vertex to){
         return (this.from.equals(from) && this.to.equals(to));
     }
+
+    public int getWeigth() {
+        return weigth;
+    }
+
+    public void setWeigth(int weigth) {
+        this.weigth = weigth;
+    }
 }
