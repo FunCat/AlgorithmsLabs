@@ -10,6 +10,7 @@ public interface IGraph {
     Vertex getVertex(String label);
     boolean hasVertex(String label);
     boolean removeVertex(String label);
+    int degreeVertex(String label);
 
     boolean addEdge(String from, String to);
     boolean hasEdge(String from, String to);

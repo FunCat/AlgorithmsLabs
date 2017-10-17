@@ -1,6 +1,5 @@
 package models;
 
-import java.security.cert.Certificate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

@@ -51,7 +51,7 @@ public class Graph implements IGraph {
 
     @Override
     public boolean addEdge(String from, String to) {
-        if(!hasEdge(from, to)){
+        if(hasEdge(from, to)){
             return false;
         }
         Vertex v1 = getVertex(from);
@@ -61,7 +61,9 @@ public class Graph implements IGraph {
 
     @Override
     public boolean hasEdge(String from, String to) {
-        return hasVertex(from) && hasVertex(to);
+        Vertex fromV = getVertex(from);
+        Vertex toV = getVertex(to);
+        return fromV.hasEdge(toV);
     }
 
     @Override
@@ -85,5 +87,10 @@ public class Graph implements IGraph {
     @Override
     public List<Vertex> adjacentVertex(String label) {
         return getVertex(label).getEdges().stream().map(Edge::toVertex).collect(Collectors.toList());
+    }
+
+    @Override
+    public int degreeVertex(String label) {
+        return getVertex(label).getEdgesCount();
     }
 }
